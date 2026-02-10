@@ -1,0 +1,7 @@
+n = 10000
+	method		optimal_value		T (s)		Iterations
+	ellip_center		-13650.755759071923		9.3989999294281		1001
+	ellip_center 2		-22399.782246054572		0.7769999504089355		1001
+	barzilai_borwein_true		-22428.5		0.0		5
+	barzilai_borwein_false		-22428.5		0.008999824523925781		7
+	ellipcenter 3		-22428.49999999332		0.007999897003173828		7
