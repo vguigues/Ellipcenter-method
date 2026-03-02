@@ -44,7 +44,7 @@ fvalue=valuef(x)
 iter=1
 
 start_time = time()
-while ((norm(gradient)>epsilon)&&(iter<=1000))
+while ((norm(gradient)>epsilon)&&(iter<=10000))
 #while ((abs(fvalue)>epsilon)&&(iter<=1000))    
       #Compute by dichotomy y such that f(y)=f(x-t \nabla f(x))=f(x)
       tL=0;
@@ -90,7 +90,9 @@ while ((norm(gradient)>epsilon)&&(iter<=1000))
       end
       scalar=scalar/(norm(gradient)*norm(gradienty))
       if ((scalar==1)||(scalar==-1))
-       x=(x+y)/2
+          x=(x+y)/2
+          fvalue=valuef(x)
+          gradient=gradientf(x)
       else
         gradientyn=gradienty/norm(gradienty)
         ek=(x-y)/norm(x-y) 
@@ -113,12 +115,14 @@ while ((norm(gradient)>epsilon)&&(iter<=1000))
         end
         if (dec>=0)
            x=p
-           gradient=gradientf(x)    
+           gradient=gradientf(x) 
+           fvalue=valuef(x)   
         else 
            k = 0
            tp = 0.0
            tc=0.0
            while (abs(dec) > epsilon)
+                println("abs(dec) = $dec")
                  if k == 0
                      step = wolfe_search(p,d, simulatorf1, a, m1, m2)
                     # step=0.001

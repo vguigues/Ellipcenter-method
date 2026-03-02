@@ -6,7 +6,7 @@ fvalue=valuef(x)
 iter=1
 
 start_time = time()
-while ((norm(gradient)>epsilon)&&(iter<=1000))
+while ((norm(gradient)>epsilon)&&(iter<=10000))
 #while ((abs(fvalue)>epsilon)&&(iter<=1000))
    #println(iter)
       tL=0;
